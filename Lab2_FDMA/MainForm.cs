@@ -15,20 +15,25 @@ namespace Lab2_FDMA
 {
     public partial class MainForm : Form
     {
-        List<Label> schemaLabels;
-        IndividualEquipment firstEquipment;
+        MainSchema schema;
 
         public MainForm()
         {
             InitializeComponent();
-            schemaLabels = new List<Label>();
-            firstEquipment = new IndividualEquipment(0, new Point(50, 20));
-            firstEquipment.AddToForm(this, schemaLabels);
+        }
+
+        private void MainForm_Shown(object sender, EventArgs e)
+        {
+            schema = new MainSchema(this);
+            schema.Clear();
+            schema.CreateSchema(0, 50);
         }
 
         private void MainForm_Paint(object sender, PaintEventArgs e)
         {
-            firstEquipment.Draw(e);
+            schema.Draw(e);
         }
+
+        
     }
 }

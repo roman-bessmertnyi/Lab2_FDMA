@@ -20,7 +20,7 @@ namespace Lab2_FDMA.View_Models
             TextAlign = ContentAlignment.MiddleCenter;
         }
 
-        public void AddToForm(Form form, List<Label> schemaLablels)
+        public virtual void AddToForm(Form form, List<Label> schemaLablels)
         {
             form.Controls.Add(this);
             schemaLablels.Add(this);

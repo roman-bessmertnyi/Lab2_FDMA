@@ -7,9 +7,8 @@ using System.Windows.Forms;
 
 namespace Lab2_FDMA.View_Models
 {
-    interface Schema
+    interface Drawable
     {
-        void CreateSchema(int x, int y);
-        void Clear();
+        void Draw(PaintEventArgs e);
     }
 }

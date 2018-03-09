@@ -9,7 +9,7 @@ using Lab2_FDMA.Graphics;
 
 namespace Lab2_FDMA.View_Models
 {
-    public class SchemaElement : SchemaLablel
+    public class SchemaElement : SchemaLablel , Drawable
     {
         public SchemaElement(string text, string name, Point Location) : base(text, name, Location)
         {
@@ -25,8 +25,9 @@ namespace Lab2_FDMA.View_Models
         protected List<BigArrow> arrows = new List<BigArrow>();
 
         public List<BigArrow> Arrows { get => arrows; set => arrows = value; }
+        public List<Point> OutputNodes { get => outputNodes; set => outputNodes = value; }
 
-        public void Draw(PaintEventArgs e)
+        public virtual void Draw(PaintEventArgs e)
         {
             foreach(BigArrow arrow in arrows)
             {
