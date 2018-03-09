@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Graphics\BigArrow.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -53,6 +54,16 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View_Models\IndividualEquipment.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View_Models\Schema.cs" />
+    <Compile Include="View_Models\SchemaElement.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View_Models\SchemaLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -78,8 +89,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Graphics\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
