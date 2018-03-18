@@ -11,7 +11,7 @@ namespace Lab2_FDMA.View_Models
     class GenerationEquipment : SchemaElement, IDrawable
     {
         const int offsetX = -150;
-        const int offsetY = 150;
+        const int offsetY = 75;
         Point center;
 
 
