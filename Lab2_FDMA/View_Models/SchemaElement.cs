@@ -9,7 +9,7 @@ using Lab2_FDMA.Graphics;
 
 namespace Lab2_FDMA.View_Models
 {
-    public class SchemaElement : SchemaLablel , Drawable
+    public class SchemaElement : SchemaLablel , IDrawable
     {
         public SchemaElement(string text, string name, Point Location) : base(text, name, Location)
         {

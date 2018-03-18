@@ -22,18 +22,17 @@ namespace Lab2_FDMA
             InitializeComponent();
         }
 
-        private void MainForm_Shown(object sender, EventArgs e)
-        {
-            schema = new MainSchema(this);
-            schema.Clear();
-            schema.CreateSchema(0, 50);
-        }
-
         private void MainForm_Paint(object sender, PaintEventArgs e)
         {
-            schema.Draw(e);
+            if (schema != null) schema.Draw(e);
         }
 
-        
+        private void buttonCalculate_Click(object sender, EventArgs e)
+        {
+            if (schema != null) schema.Clear();
+            schema = new MainSchema(this, Convert.ToInt16(textBoxSignals.Text));
+            Invalidate();
+            schema.CreateSchema(0,30);
+        }
     }
 }

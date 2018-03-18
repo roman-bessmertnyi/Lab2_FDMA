@@ -27,7 +27,7 @@ namespace Lab2_FDMA.View_Models
             int numberIE = 0;
             foreach (Point inputNode in inputNodes)
             {
-                inputEquipments.Add(new IndividualEquipment(numberIE, GetStackLocationIE(stackLocation)));
+                inputEquipments.Add(new IndividualEquipment(false, numberIE, number, GetStackLocationIE(number, stackLocation)));
                 arrows.Add(new BigArrow(inputEquipments[numberIE++].OutputNodes[0], inputNode));
             }
         }
@@ -42,9 +42,9 @@ namespace Lab2_FDMA.View_Models
             }
         }
 
-        Point GetStackLocationIE(Point stackLocation)
+        Point GetStackLocationIE(int number, Point stackLocation)
         {
-            return new Point(stackLocation.X + individualEquipmentOffsetY, stackLocation.Y);
+            return new Point(stackLocation.X + individualEquipmentOffsetY, stackLocation.Y + number * (verticalOffset));
         }
 
         public override void AddToForm(Form form, List<Label> Lablels)

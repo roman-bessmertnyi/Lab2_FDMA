@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace Lab2_FDMA.View_Models
 {
-    interface Drawable
+    interface IDrawable
     {
         void Draw(PaintEventArgs e);
     }

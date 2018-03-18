@@ -8,16 +8,17 @@ using System.Windows.Forms;
 
 namespace Lab2_FDMA.View_Models
 {
-    class MainSchema : Schema, Drawable
+    class MainSchema : ISchema, IDrawable
     {
-        List<Label> lables;
+        List<Label> lables = new List<Label>();
         MainForm MainForm;
         int x; int y;
+        int signalNumber;
 
-        public MainSchema(MainForm mainForm)
+        public MainSchema(MainForm mainForm, int signalNumber)
         {
             MainForm = mainForm;
-            lables = new List<Label>();
+            this.signalNumber = signalNumber;
         }
 
         public void CreateSchema(int x, int y)
@@ -29,8 +30,13 @@ namespace Lab2_FDMA.View_Models
 
         void AddElements()
         {
-            UnificationEquipment unificationEquipment = new UnificationEquipment(75, new Point(700, 20));
+            UnificationEquipment unificationEquipment = new UnificationEquipment(signalNumber, new Point(400 + x, 20 + y));
             unificationEquipment.AddToForm(MainForm, lables);
+            GenerationEquipment generationEquipment = new GenerationEquipment(unificationEquipment);
+            generationEquipment.AddToForm(MainForm, lables);
+            EndingEquipment endingEquipment = new EndingEquipment(unificationEquipment);
+            endingEquipment.AddToForm(MainForm, lables);
+
             //FirstLevelEquipment firstEquipment = new FirstLevelEquipment(0, new Point(300, 20));
             //firstEquipment.AddToForm(MainForm, lables);
         }
@@ -48,8 +54,7 @@ namespace Lab2_FDMA.View_Models
         {
             foreach (Label label in lables)
             {
-                Drawable drawable = label as Drawable;
-                if (drawable != null)
+                if (label is IDrawable drawable)
                 {
                     drawable.Draw(e);
                 }

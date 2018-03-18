@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace Lab2_FDMA.View_Models
 {
-    interface Schema
+    interface ISchema
     {
         void CreateSchema(int x, int y);
         void Clear();
